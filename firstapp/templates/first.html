@@ -1,0 +1,39 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/first.css' %}">
+
+<script src="{% static 'js/first.js' %}"> </script>
+</head>
+
+<body>
+    <header>
+    <h1 id="heading">Vcube Application</h1>
+</header><br>
+<main>
+<form action="" method="post" onsubmit="return validate()">
+    {% csrf_token %}
+
+value1<input type="text" name="t1" id="t1"><br>
+
+value2 <input type="text" name="t2" id="t2"><br>
+select action <select name="operation" id="">
+    <option value="add">addition</option>
+    <option value="sub">subtraction</option>
+    <option value="multi">multiplication</option>
+    <option value="div">division</option>
+</select><br>
+<input type="submit" value="calculate" name="" id="">
+</form>
+{% if act == 'addition' %}
+<p style="color: green;">{{act}}  {{result}}</p>
+{% else %}
+<p style="color: red;">{{act}}  {{result}}</p>
+{% endif %}
+</main>
+
+</body>
+</html>
