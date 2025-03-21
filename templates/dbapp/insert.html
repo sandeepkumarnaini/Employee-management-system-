@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div id="header">
+        <h1 id="heading">Vcube Application</h1>
+    </div>
+    <div id="main">
+        <form action="" method="post">
+            {% csrf_token %}
+            employee no 
+            <input type="text" name="no" id=""><br><br>
+            employee name
+            <input type="text" name="name" id=""><br><br>
+            employee sal
+            <input type="text" name="sal" id=""><br><br>
+            Department
+            <select name="dept" id="">
+                {% for d in dept %}
+                <option value="{{d.deptno}}">{{d.deptname}}</option>
+                {% endfor %}
+            </select><br><br>
+            <input type="submit" value="insert" name="" id="">
+        </form>
+        <p>{{msg}}</p>
+    </div>
+</body>
+</html>

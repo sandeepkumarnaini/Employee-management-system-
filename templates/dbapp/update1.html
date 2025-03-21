@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+    employee No
+    <input type="text" value="{{emps.empno}}" name="t1" id=""><br><br>
+    Employee name
+    <input type="text" value="{{emps.empname}}" name="t2" id=""><br><br>
+    Employee Sal
+    <input type="text" value="{{emps.empsal}}" name="t3" id=""><br><br>
+    <p>Existing department : {{emps.department.deptname}}</p>
+    <select name="dep" id="">
+        {% for d in dept %}
+        <option value="{{d.deptno}}">{{d.deptname}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="update" name="" id=""> 
+</form>
+{% endblock %}

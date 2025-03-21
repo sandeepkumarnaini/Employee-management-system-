@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block addcss %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock %}
+{% block main %}
+<div id="container">
+    <div id="left">
+        <img src="{{emp.profile_pic.url}}" alt="">
+    </div>
+    <div id="right">
+        <video src="{{emp.video.url}}" autoplay controls></video><br>
+        <p>{{emp.empname}}</p>
+        <p>{{emp.empsal}}</p>
+        <p>{{emp.department.deptname}}</p>
+    </div>
+</div>
+{% for p in pre %}
+    <div id="bottom">
+        <img src="{{p.profile_pic.url}}" alt="">
+        <p>{{p.empname}}</p>
+    </div>
+    {% endfor %}
+{% endblock %}

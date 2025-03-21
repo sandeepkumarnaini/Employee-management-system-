@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="" method="post">
+    {% csrf_token %}
+Min salary
+<input type="text" name="t1" id="">
+Max salary
+<input type="text" name="t2" id="">
+<input type="submit" value="submit" name="" id="">
+</form><br><br>
+<table border="1px" cellspacing="0px" >
+    <tr><th>Employee NO</th><th>Employee Name</th><th>Employee Sal</th><th>Department</th><th colspan="2">Action</th></tr>
+    {% for e in emp %}
+    <tr><td>{{e.empno}}</td><td>{{e.empname}}</td><td>{{e.empsal}}</td><td>{{e.department.deptname}}</td><td><a href="{% url 'updateempurl' e.empno %}">Update</a></td><td><a href="{% url 'deleteempurl' e.empno %}">Delete</a></td></tr>
+    {% endfor %}
+</table>
+{% endblock %}

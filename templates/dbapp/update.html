@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block main %}
+<form action="{% url 'update1' %}" method="post">
+    {% csrf_token %}
+    Employee No
+    <input type="text" name="no" value="" id=""><br><br>
+    <input type="submit" name="" value="Get Data" id="">
+</form>
+<form action="{% url 'update2' %}" method="post">
+    {% csrf_token %}
+    Employee No
+    <input type="text" name="t1" value="{{emps.empno}}" id=""><br><br>
+    Employee Name
+    <input type="text" name="t2" value="{{emps.empname}}" id=""><br><br>
+    Employee Salary
+    <input type="text" name="t3" value="{{emps.empsal}}" id=""><br><br>
+    
+    <input type="submit" name="" value="Update" id="">
+</form>
+<p>{{msg}}</p>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block addcss %}
+<link rel="stylesheet" href="{% static 'css/select.css' %}">
+{% endblock %}
+{% block main %}
+<div id="mainbar">
+    <div id="mainpage">
+        {% for e in emp %}
+        <a href="{% url 'detailurl' e.empno %}">
+        <div id="empcard">
+        {% if e.profile_pic %}
+        <img src="{{e.profile_pic.url}}" width="200px" height="100px" alt="">
+        {% endif %}
+        <p>{{e.empname}}</p>
+        <p>{{e.empsal}}</p>
+        <p>{{e.department.deptname}}</p>
+        </div></a>
+        {% endfor %}
+    </div>
+    <div id="navbar">
+        {% if emp.has_previous %}
+        <a href="{% url 'selecturl' emp.previous_page_number %}">Previous</a>
+        {% endif %}
+        <span>{{emp.number}}</span>
+        {% if emp.has_next %}
+        <a href="{% url 'selecturl' emp.next_page_number %}">Next</a>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

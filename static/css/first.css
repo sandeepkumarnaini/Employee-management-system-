@@ -1,0 +1,13 @@
+header{
+    text-align: center;
+    height: 8%;
+    background-color: red;
+    color: white; 
+}
+main{
+    text-align: center;
+    padding: 20px;
+}
+#heading{
+    padding-top: 4px;
+}
